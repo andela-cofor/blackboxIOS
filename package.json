@@ -19,9 +19,11 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "eslint": "^4.9.0",
     "eslint-config-rallycoding": "^3.2.0",
-    "expo": "^21.0.0",
+    "expo": "^21.0.3",
     "react": "16.0.0-alpha.12",
-    "react-native": "^0.48.4"
+    "react-native": "^0.48.4",
+    "react-navigation": "^1.0.0-beta.15"
   }
 }
