@@ -41,7 +41,8 @@ export default class Button extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height: 40,
-    width: 180
+    width: 180,
+    backgroundColor: '#fff'
   },
   buttonStyle: {
     flex: 1,
@@ -52,15 +53,19 @@ const styles = StyleSheet.create({
     borderColor: '#5c5c5c',
     marginLeft: 5,
     marginRight: 5,
-
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    elevation: 1,
   },
   buttonTextStyle: {
     alignSelf: 'center',
     color: '#fff',
-    fontWeight: '600',
-    paddingTop: 8,
+    fontWeight: '700',
+    paddingTop: 9,
     fontFamily: 'AvenirNextCondensed-DemiBold',
-    // fontSize: 20,
+    fontSize: 15
   }
 });
 

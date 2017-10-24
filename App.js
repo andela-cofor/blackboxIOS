@@ -17,8 +17,9 @@ export default class App extends React.Component {
 
   render() {
     const SimpleApp = StackNavigator({
+      LoginScreen: { screen: LoginScreen },
       LaunchScreen: { screen: LaunchScreen },
-      LoginScreen: { screen: LoginScreen }
+
     });
 
     return (
