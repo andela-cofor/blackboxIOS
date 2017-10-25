@@ -8,17 +8,24 @@ import { StyleSheet, View, Text, Image, TextVali } from 'react-native';
 import { Input, Button } from '../common';
 
 export default class LoginScreen extends React.Component {
-  state = { email: '', password: '', error: ''}
+  state = { email: '', password: '', passwordErrorMessage: '', emailErrorMessage: ''}
 
   validateInput() {
     const { navigate } = this.props.navigation;
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(!re.test(this.state.email)){
-      this.setState({ error: 'Enter a valid email'})
-    } else if (this.state.password.length < 8) {
-      this.setState({ error: 'Password must be at least 8 characters'})
-    } else {
-      this.setState({error: ''});
+      this.setState({ emailErrorMessage: 'Enter a valid email'})
+    }
+    if (this.state.password.length < 8) {
+      this.setState({ passwordErrorMessage: 'Password must be at least 8 characters'})
+    }
+    if(re.test(this.state.email)) {
+      this.setState({emailErrorMessage: ''});
+    }
+    if (this.state.password.length > 7) {
+      this.setState({ passwordErrorMessage: ''})
+    }
+    if(re.test(this.state.email) && this.state.password.length > 7) {
       navigate('EmptyScreen');
     }
   }
@@ -48,6 +55,9 @@ export default class LoginScreen extends React.Component {
             value={this.state.email}
             onChangeText={email => this.setState({ email })}
           />
+          <Text style={errorTextStyle}>
+            {this.state.emailErrorMessage}
+          </Text>
         </View>
         <View style={inputViewStyle2}>
           <Input
@@ -57,7 +67,7 @@ export default class LoginScreen extends React.Component {
             onChangeText={password => this.setState({ password })}
           />
           <Text style={errorTextStyle}>
-            {this.state.error}
+            {this.state.passwordErrorMessage}
           </Text>
         </View>
         <View style={loginButtonStyle}>
@@ -93,10 +103,10 @@ const styles = StyleSheet.create({
     fontWeight: '800'
   },
   inputViewStyle1: {
-    marginTop: 22,
+    marginTop: 37,
     height: 40,
     width: 250,
-    marginBottom: 23
+    marginBottom: 15
   },
   inputViewStyle2:{
     height: 40,
