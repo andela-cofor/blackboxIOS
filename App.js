@@ -8,7 +8,7 @@ import { View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 // components
-import { LaunchScreen, LoginScreen, EmptyScreen } from './src/component';
+import { LaunchScreen, LoginScreen, EmptyScreen, DeActivateScreen } from './src/component';
 
 export default class App extends React.Component {
   static navigationOptions = {
@@ -19,7 +19,8 @@ export default class App extends React.Component {
     const SimpleApp = StackNavigator({
       LaunchScreen: { screen: LaunchScreen },
       LoginScreen: { screen: LoginScreen },
-      EmptyScreen: { screen: EmptyScreen }
+      EmptyScreen: { screen: EmptyScreen },
+      DeActivateScreen: { screen: DeActivateScreen },
     });
 
     return (
