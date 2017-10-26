@@ -7,14 +7,35 @@ import { StyleSheet, View, Text, Image } from 'react-native';
 // component
 import { LightInput, Button, Strong, LightButton } from '../common';
 
+// third-party libraries
+import Toast from 'react-native-easy-toast'
+
 class SignUpScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      errorMessage: ''
     };
   };
+
+  validateInput() {
+    const { navigate } = this.props.navigation;
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(!re.test(this.state.email)){
+      this.refs.toast.show('Enter a valid email');
+      return false;
+    }
+    if (this.state.password.length < 8) {
+      this.refs.toast.show('Password must be at least 8 characters');
+      return false;
+    }
+    if(re.test(this.state.email) && this.state.password.length > 7) {
+      navigate('EmptyScreen');
+      return true;
+    }
+  }
 
   render() {
     const {
@@ -23,11 +44,13 @@ class SignUpScreen extends Component {
       logoText,
       inputViewStyle1,
       inputViewStyle2,
+      errorTextStyle
     } = styles;
     const { email, password } = this.state
 
     return (
       <View style={container}>
+        <Toast ref="toast" />
         <Image
           style={imageStyle}
           source={{ uri: 'http://image.ibb.co/kW9Zd6/padlock.png" alt="blackbox_logo' }}
@@ -39,6 +62,9 @@ class SignUpScreen extends Component {
             value={email}
             onChangeText={email => this.setState({ email })}
           />
+          <Text style={errorTextStyle}>
+            {this.state.emailErrorMessage}
+          </Text>
         </View>
         <View style={inputViewStyle2}>
           <LightInput
@@ -48,10 +74,13 @@ class SignUpScreen extends Component {
             value={password}
             onChangeText={password => this.setState({ password })}
           />
+          <Text style={errorTextStyle}>
+            {this.state.passwordErrorMessage}
+          </Text>
         </View>
         <View style={{ paddingTop: 35, backgroundColor: 'transparent' }}>
           <LightButton
-            onPress={() => { console.log(this.state) }}
+            onPress={() => {this.validateInput()}}
             text='SIGN UP'
           />
         </View>
@@ -95,6 +124,11 @@ const styles = StyleSheet.create({
     height: 40,
     width: 250
   },
+  errorTextStyle: {
+    backgroundColor: 'transparent',
+    color: '#cc0000',
+    fontSize: 12
+  }
 })
 
 export { SignUpScreen };

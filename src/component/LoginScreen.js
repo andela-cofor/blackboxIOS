@@ -88,9 +88,11 @@ export default class LoginScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    backgroundColor: '#FFF'
   },
   imageStyle: {
-    marginTop: 81,
     height: 135,
     width: 130
   },
