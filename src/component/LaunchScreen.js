@@ -35,7 +35,7 @@ export default class LaunchScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
   imageStyle: {
     marginTop: 120,

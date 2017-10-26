@@ -42,6 +42,7 @@ export default class LoginScreen extends React.Component {
       forgotPasswordTextStyle,
       errorTextStyle
     } = styles;
+
     return (
       <View style={container}>
         <Image
