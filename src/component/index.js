@@ -1,4 +1,5 @@
 export * from './LaunchScreen';
 export * from './LoginScreen';
-export * from './EmptyScreen';
 export * from './DeActivateScreen';
+export * from './SignUpScreen';
+export * from './EmptyScreen';

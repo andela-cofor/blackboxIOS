@@ -7,7 +7,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 // third-party libraries
 import { Font } from 'expo';
 
-export default class Button extends Component {
+export default class LightButton extends Component {
   state = { fontLoaded: false };
 
   async componentWillMount() {
@@ -40,14 +40,14 @@ export default class Button extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 35,
+    height: 40,
     width: 180,
-    backgroundColor: '#FFF'
+    backgroundColor: 'transparent'
   },
   buttonStyle: {
     flex: 1,
     alignSelf: 'stretch',
-    backgroundColor: '#5c5c5c',
+    backgroundColor: '#FFF',
     borderRadius: 3,
     borderWidth: 1,
     borderColor: '#5c5c5c',
@@ -61,12 +61,13 @@ const styles = StyleSheet.create({
   },
   buttonTextStyle: {
     alignSelf: 'center',
-    color: '#fff',
-    fontWeight: '700',
+    color: '#5c5c5c',
+    letterSpacing: 2,
+    fontWeight: '500',
     paddingTop: 9,
     fontFamily: 'AvenirNextCondensed-DemiBold',
     fontSize: 15
   }
 });
 
-export { Button };
+export { LightButton };

@@ -4,7 +4,7 @@ import React from 'react';
 // react-native libraries
 import { StyleSheet, View, TextInput, Text } from 'react-native';
 
-const Input = ({
+const LightInput = ({
   label,
   value,
   onChangeText,
@@ -30,12 +30,12 @@ const Input = ({
 
 const styles = StyleSheet.create({
   inputStyle: {
-    color: '#939393',
+    color: '#FFF',
     fontSize: 18,
     lineHeight: 23,
     flex: 2,
     height: 40,
-    width: 200,
+    width: 250,
     fontFamily: 'Avenir-Book',
     fontWeight: '100',
   },
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     height: 40,
     flex: 1,
     borderBottomWidth: 2,
-    borderBottomColor: '#959595',
+    borderBottomColor: '#FFF',
   }
 });
 
-export { Input };
+export { LightInput };

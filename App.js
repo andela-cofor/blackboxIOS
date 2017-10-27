@@ -2,31 +2,30 @@
 import React from 'react';
 
 // react-native libraries
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 // third-party imports
 import { StackNavigator } from 'react-navigation';
 
 // components
-import { LaunchScreen, LoginScreen, EmptyScreen, DeActivateScreen } from './src/component';
+import {
+  LaunchScreen,
+  LoginScreen,
+  SignUpScreen,
+  EmptyScreen,
+  DeActivateScreen
+} from './src/component';
 
-export default class App extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
 
-  render() {
-    const SimpleApp = StackNavigator({
-      LaunchScreen: { screen: LaunchScreen },
-      LoginScreen: { screen: LoginScreen },
-      EmptyScreen: { screen: EmptyScreen },
-      DeActivateScreen: { screen: DeActivateScreen },
-    });
 
-    return (
-      <View>
-        <SimpleApp />
-      </View>
-    );
-  }
-}
+export default MainStack = StackNavigator({
+  LaunchScreen: { screen: LaunchScreen },
+  LoginScreen: { screen: LoginScreen },
+  SignUpScreen: { screen: SignUpScreen },
+  EmptyScreen: { screen: EmptyScreen },
+  DeActivateScreen: { screen: DeActivateScreen },
+  }, {
+    navigationOptions: {
+      header: null
+    }
+});
