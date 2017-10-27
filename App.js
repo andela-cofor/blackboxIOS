@@ -2,7 +2,7 @@
 import React from 'react';
 
 // react-native libraries
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 // third-party imports
 import { StackNavigator } from 'react-navigation';
@@ -19,14 +19,13 @@ import {
 
 
 export default MainStack = StackNavigator({
-  LaunchScreen: {
-	  screen: LaunchScreen,
-	  navigationOptions: {
-		  header: null
-	  }
-  },
+  LaunchScreen: { screen: LaunchScreen },
   LoginScreen: { screen: LoginScreen },
   SignUpScreen: { screen: SignUpScreen },
   EmptyScreen: { screen: EmptyScreen },
   DeActivateScreen: { screen: DeActivateScreen },
+  }, {
+    navigationOptions: {
+      header: null
+    }
 });

@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     lineHeight: 23,
     flex: 2,
     height: 40,
-    width: 200,
+    width: 250,
     fontFamily: 'Avenir-Book',
     fontWeight: '100',
   },

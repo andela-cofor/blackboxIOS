@@ -16,19 +16,32 @@ class SignUpScreen extends Component {
     this.state = {
       email: '',
       password: '',
-      errorMessage: ''
+      emailErrorMessage: '',
+      passwordErrorMessage: ''
     };
   };
 
   validateInput() {
+    this.setState({
+      emailErrorMessage: '',
+      passwordErrorMessage: ''
+    });
     const { navigate } = this.props.navigation;
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let password_re = /^[a-z0-9]+$/i;
     if(!re.test(this.state.email)){
+      this.setState({ emailErrorMessage: 'Enter a valid email' });
       this.refs.toast.show('Enter a valid email');
       return false;
     }
     if (this.state.password.length < 8) {
+      this.setState({ passwordErrorMessage: 'Password must be at least 8 characters' })
       this.refs.toast.show('Password must be at least 8 characters');
+      return false;
+    }
+    if (!password_re.test(this.state.password)) {
+      this.setState({ passwordErrorMessage: 'No special character allowed' });
+      this.refs.toast.show('No special character allowed');
       return false;
     }
     if(re.test(this.state.email) && this.state.password.length > 7) {
@@ -46,7 +59,7 @@ class SignUpScreen extends Component {
       inputViewStyle2,
       errorTextStyle
     } = styles;
-    const { email, password } = this.state
+    const { email, password } = this.state;
 
     return (
       <View style={container}>
@@ -86,7 +99,7 @@ class SignUpScreen extends Component {
         </View>
         <View>
           <Text style={{
-            color: 'white',
+            color: '#FFF',
             textAlign: 'center',
             paddingTop: 20
           }}>
@@ -126,7 +139,7 @@ const styles = StyleSheet.create({
   },
   errorTextStyle: {
     backgroundColor: 'transparent',
-    color: '#cc0000',
+    color: 'pink',
     fontSize: 12
   }
 })
