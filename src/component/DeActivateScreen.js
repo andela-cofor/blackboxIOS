@@ -34,7 +34,8 @@ export default class DeActivateScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    height: '100%'
   },
   imageStyle: {
     marginTop: 120,

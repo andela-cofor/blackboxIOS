@@ -13,17 +13,19 @@ import {
   LoginScreen,
   SignUpScreen,
   EmptyScreen,
-  DeActivateScreen
+  DeActivateScreen,
+  ActivateScreen
 } from './src/component';
 
 
 
 export default MainStack = StackNavigator({
+  DeActivateScreen: { screen: DeActivateScreen },
   LaunchScreen: { screen: LaunchScreen },
   LoginScreen: { screen: LoginScreen },
   SignUpScreen: { screen: SignUpScreen },
   EmptyScreen: { screen: EmptyScreen },
-  DeActivateScreen: { screen: DeActivateScreen },
+  ActivateScreen: { screen: ActivateScreen },
   }, {
     navigationOptions: {
       header: null
