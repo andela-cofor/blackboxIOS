@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
 // common
-import { Strong, Button, LightButton } from '../common';
+import { Strong, LightButton } from '../common';
 
 class ActivateScreen extends Component {
   render() {
@@ -15,7 +15,7 @@ class ActivateScreen extends Component {
       <View style={container}>
         <Image
           style={imageStyle}
-          source={{ uri: 'http://image.ibb.co/hAn6d6/blackbox_envelope.png" alt="blackbox_logo' }}
+          source={require('../../assets/image/blackbox_envelope.png')}
         />
         <Text style={{
           padding: 25,

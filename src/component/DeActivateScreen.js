@@ -33,7 +33,7 @@ export default class DeActivateScreen extends React.Component {
       <View style={container}>
         <Image
           style={imageStyle}
-          source={{ uri: 'https://image.ibb.co/e6r85m/blackbox_checkmark.png' }}
+          source={require('../../assets/image/blackbox_checkmark.png')}
         />
         <Text style={logoText}>Your device is secure</Text>
         <Text style={activeText}>Blackbox is active</Text>

@@ -54,7 +54,6 @@ class SignUpScreen extends Component {
     const {
       imageStyle,
       container,
-      logoText,
       inputViewStyle1,
       inputViewStyle2,
       errorTextStyle
@@ -66,7 +65,7 @@ class SignUpScreen extends Component {
         <Toast ref="toast" />
         <Image
           style={imageStyle}
-          source={{ uri: 'http://image.ibb.co/kW9Zd6/padlock.png" alt="blackbox_logo' }}
+          source={require('../../assets/image/padlock.png')}
         />
         <View style={inputViewStyle1}>
           <LightInput

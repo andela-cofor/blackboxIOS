@@ -49,7 +49,7 @@ export default class LoginScreen extends React.Component {
       <View style={container}>
         <Image
           style={imageStyle}
-          source={{ uri: 'https://image.ibb.co/mWf9Am/blackbox_logo.png" alt="blackbox_logo' }}
+          source={require('../../assets/image/blackbox_logo.png')}
         />
         <Text style={logoText}>Blackbox</Text>
         <View style={inputViewStyle1}>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     paddingTop: 25,
   },
   forgotPasswordViewStyle: {
-    marginTop: 38,
+    marginTop: 5,
     backgroundColor: '#fff',
   },
   forgotPasswordTextStyle: {

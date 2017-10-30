@@ -16,7 +16,7 @@ export default class LaunchScreen extends React.Component {
       <View style={container}>
         <Image
           style={imageStyle}
-          source={{ uri: 'https://image.ibb.co/mWf9Am/blackbox_logo.png" alt="blackbox_logo' }}
+          source={require('../../assets/image/blackbox_logo.png')}
         />
         <Text style={logoText}>Blackbox</Text>
         <Text style={purposeText1}>Blackbox protects your device</Text>
