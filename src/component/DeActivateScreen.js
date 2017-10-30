@@ -1,17 +1,34 @@
+/* eslint-disable react/require-extension */
 // react libraries
 import React from 'react';
 
 // react-native libraries
 import { StyleSheet, View, Text, Image } from 'react-native';
 
+// third-party libraries
+import Modal from 'react-native-simple-modal';
+
 // common
-import { Button } from '../common';
+import { Button, Input } from '../common';
 
 export default class DeActivateScreen extends React.Component {
+  state = { showModal: false, password: '' };
 
   render() {
-    const { container, imageStyle, logoText, activeText, secureButton } = styles;
-    const { navigate } = this.props.navigation;
+    const {
+      container,
+      imageStyle,
+      logoText,
+      activeText,
+      secureButton,
+      confirmationTextStyle,
+      modalStyle,
+      modalPasswordView,
+      modalPasswordText,
+      modalBottomViewContainer,
+      modalCancelText,
+      modalDeActivateText
+    } = styles;
     return (
       <View style={container}>
         <Image
@@ -22,10 +39,49 @@ export default class DeActivateScreen extends React.Component {
         <Text style={activeText}>Blackbox is active</Text>
         <View style={secureButton}>
           <Button
-            onPress={() => { navigate('EmptyScreen'); }}
+            onPress={() => this.setState({ showModal: true })}
             text='DE-ACTIVATE'
           />
         </View>
+        <Modal
+          offset={this.state.offset}
+          open={this.state.showModal}
+          modalDidClose={() => this.setState({ showModal: false })}
+          style={modalStyle}
+        >
+          <View style={{ height: 168 }}>
+            <Text
+              style={confirmationTextStyle}
+            >
+              Confirmation
+            </Text>
+            <View
+              style={modalPasswordView}
+            >
+              <Input
+                secureTextEntry
+                style={modalPasswordText}
+                placeholder='Password'
+                value={this.state.password}
+                onChangeText={password => this.setState({ password })}
+              />
+            </View>
+            <View style={modalBottomViewContainer} >
+              <Text
+                style={modalCancelText}
+                onPress={() => this.setState({ showModal: false })}
+              >
+                CANCEL
+              </Text>
+              <Text
+                style={modalDeActivateText}
+                onPress={() => console.log(this.state.password)}
+              >
+                DE-ACTIVATE
+              </Text>
+            </View>
+          </View>
+        </Modal>
       </View>
     );
   }
@@ -44,7 +100,6 @@ const styles = StyleSheet.create({
   },
   logoText: {
     marginTop: 20,
-    fontWeight: '900',
     color: '#6e6e6e',
     fontFamily: 'Avenir-Heavy',
     fontSize: 25,
@@ -59,6 +114,44 @@ const styles = StyleSheet.create({
   },
   secureButton: {
     marginTop: 60,
+  },
+  modalStyle: {
+    alignItems: 'center'
+  },
+  confirmationTextStyle: {
+    fontFamily: 'Avenir-Heavy',
+    fontSize: 20,
+    marginTop: 10,
+    paddingLeft: 15,
+    color: '#616161',
+    fontWeight: '700'
+  },
+  modalPasswordView: {
+    marginTop: 21,
+    height: 33,
+    paddingLeft: 5,
+  },
+  modalPasswordText: {
+    fontFamily: 'Avenir-Book',
+    color: '#616161',
+  },
+  modalBottomViewContainer: {
+    flexDirection: 'row',
+    marginTop: 55,
+    marginLeft: 180
+  },
+  modalCancelText: {
+    flex: 1,
+    color: '#5c5c5c',
+    fontWeight: '700',
+    fontFamily: 'AvenirNextCondensed-Bold'
+  },
+  modalDeActivateText: {
+    flex: 2,
+    textAlign: 'right',
+    paddingRight: 10,
+    fontFamily: 'AvenirNextCondensed-Medium',
+    color: '#4a4a4a'
   }
 });
 

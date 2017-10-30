@@ -5062,9 +5062,19 @@ react-native-gesture-handler@1.0.0-alpha.22:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-keyboard-spacer@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-keyboard-spacer/-/react-native-keyboard-spacer-0.4.1.tgz#46f18a320432098a25ea9fa89f5143dd254d332d"
+
 react-native-maps@0.15.3:
   version "0.15.3"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.15.3.tgz#5d9e0a8e30ecc51dc755b7a3b9d6b6ed5e2dd08c"
+
+react-native-modal-wrapper@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-modal-wrapper/-/react-native-modal-wrapper-3.0.0.tgz#0d58b5a355d83af5428ed250f300e1088018f22a"
+  dependencies:
+    react-native-keyboard-spacer "^0.4.1"
 
 react-native-safe-module@^1.1.0:
   version "1.2.0"
@@ -5091,6 +5101,10 @@ react-native-scripts@1.5.0:
     qrcode-terminal "^0.11.0"
     rimraf "^2.6.1"
     xdl "45.0.0"
+
+react-native-simple-modal@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-simple-modal/-/react-native-simple-modal-7.0.0.tgz#402e4e51dd3c6a5f64b9cd8dfc0b364358fe956b"
 
 react-native-svg@5.3.0:
   version "5.3.0"
