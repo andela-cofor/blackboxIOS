@@ -21,11 +21,11 @@ import {
 export default MainStack = StackNavigator({
   DeActivateScreen: { screen: DeActivateScreen },
   SecureScreen: { screen: SecureScreen },
+  ActivateScreen: { screen: ActivateScreen },
   LaunchScreen: { screen: LaunchScreen },
   LoginScreen: { screen: LoginScreen },
   SignUpScreen: { screen: SignUpScreen },
   EmptyScreen: { screen: EmptyScreen },
-  ActivateScreen: { screen: ActivateScreen },
   }, {
     navigationOptions: {
       header: null

@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
 // common
-import { Strong, Button, LightButton } from '../common';
+import { Strong, LightButton } from '../common';
 
 class ActivateScreen extends Component {
   render() {
